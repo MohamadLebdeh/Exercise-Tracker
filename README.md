@@ -1,7 +1,3 @@
-Here’s a professional and detailed **README** for your GitHub repository, written to showcase *you (Mohamad Lebdeh)* as the lead contributor and emphasize your technical and analytical work. It reads cleanly for recruiters, professors, or collaborators reviewing your profile.
-
----
-
 # Exercise Tracking Project
 
 ### Exploring the Most Effective Models for Exercise Recognition and Repetition Tracking
