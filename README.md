@@ -3,7 +3,7 @@
 ### Exploring the Most Effective Models for Exercise Recognition and Repetition Tracking
 
 **Prepared by:** Mohamad Lebdeh
-**Collaborators:** Matin Rahmani Neishabour, Mostafa Aboutaam, Arturo Rebolledo
+**Collaborators:** Matin Rahmani Neishabour, Arturo Rebolledo
 **Advisor:** Dr. Tim H. Lin
 **Institution:** California State Polytechnic University, Pomona
 
