@@ -1,8 +1,8 @@
 # Exercise Tracking Project
 
-### Exploring the Most Effective Models for Exercise Recognition and Repetition Tracking
+### Exploring Machine Learning Models for Exercise Recognition and Repetition Tracking
 
-**Prepared by:** Mohamad Lebdeh
+**Author:** Mohamad Lebdeh
 **Collaborators:** Matin Rahmani Neishabour, Arturo Rebolledo
 **Advisor:** Dr. Tim H. Lin
 **Institution:** California State Polytechnic University, Pomona
@@ -11,38 +11,36 @@
 
 ## Overview
 
-This project investigates the use of **wearable sensors** (accelerometers and gyroscopes) for **tracking strength training exercises**. It focuses on building **machine learning models** that can recognize exercise types, count repetitions, and detect improper form using data collected from wrist-mounted devices.
+This project applies **wearable sensor data** from accelerometers and gyroscopes to automatically recognize **strength training exercises**, **count repetitions**, and **identify improper form**.
+It demonstrates how machine learning and signal processing can simulate aspects of a **personal trainer** by analyzing motion patterns captured from wrist-mounted sensors.
 
-The goal is to simulate the functionality of a **personal trainer** by applying advanced data processing and supervised learning techniques to wearable sensor data.
+The work focuses on end-to-end data handling—from **raw sensor acquisition** to **model evaluation**—and uses multiple supervised learning algorithms to identify optimal architectures for human activity recognition.
 
 ---
 
 ## Mohamad’s Role and Contributions
 
-As the **Data Processing Lead** and a core developer, I was responsible for:
+As the **Data Processing Lead** and a primary developer, I focused on ensuring the reliability and accuracy of the full data pipeline:
 
-* Implementing Python scripts to **clean, preprocess, and filter raw sensor data**.
-* Designing **noise reduction algorithms** using **Butterworth low-pass filtering**.
-* Performing **feature engineering** through **Principal Component Analysis (PCA)** and **Fourier Transform**.
-* Building and refining **predictive models** (Neural Network, Random Forest, KNN, Decision Tree, Naive Bayes).
-* Conducting **accuracy evaluations** and producing **confusion matrices** for visual performance analysis.
-* Writing modular, efficient Python code inside **Google Colab** and collaborating through shared notebooks.
-
-My main objective was to enhance the **data reliability** and **model accuracy** across multiple participants and exercises.
+* Built Python scripts to **clean, synchronize, and preprocess raw accelerometer and gyroscope data**.
+* Designed **noise-reduction algorithms** using **Butterworth low-pass filtering** and outlier detection.
+* Engineered features with **Principal Component Analysis (PCA)** and **Fast Fourier Transform (FFT)** to extract both time- and frequency-domain characteristics.
+* Trained and optimized **Neural Network**, **Random Forest**, **K-Nearest Neighbors**, **Decision Tree**, and **Naive Bayes** models.
+* Conducted **performance evaluation** using confusion matrices, cross-validation, and model comparison charts.
+* Wrote modular, well-documented Python code in **Google Colab** and managed shared collaborative notebooks.
 
 ---
 
 ## Project Architecture
 
-**Platform Used:** Google Colab (Python 3)
+**Platform:** Google Colab (Python 3)
 
 **Core Tools and Libraries:**
 
 * NumPy, Pandas, Matplotlib, Seaborn
 * Scikit-learn, TensorFlow
 * MbientLab MetaMotion Sensor Kit
-* Fast Fourier Transform (FFT)
-* PCA and K-Means Clustering
+* PCA, FFT, K-Means Clustering
 
 ---
 
@@ -50,62 +48,62 @@ My main objective was to enhance the **data reliability** and **model accuracy**
 
 ### 1. Data Collection
 
-* Sensor data from **five participants** performing **barbell exercises**.
-* Recorded accelerometer and gyroscope readings for **six activities**: Bench, Overhead Press, Squat, Deadlift, Row, and Rest.
-* Each exercise contained multiple repetitions and intensity levels (light, medium, heavy).
+* Captured multi-axis sensor data from **five participants** performing six barbell exercises: Bench Press, Overhead Press, Squat, Deadlift, Row, and Rest.
+* Each participant performed multiple repetitions across light, medium, and heavy intensities.
 
 ### 2. Data Processing
 
-* Combined 69,000+ data entries with synchronized timestamps.
-* Applied **low-pass filtering** and **outlier detection** (Chauvenet’s Criterion).
-* Used **PCA** to reduce dimensionality and highlight dominant movement patterns.
-* Transformed sensor data to frequency domain with **Fourier Transform**.
+* Combined and synchronized **69,000+ time-series entries**.
+* Applied **low-pass Butterworth filtering** to reduce high-frequency noise.
+* Detected and removed outliers using **Chauvenet’s Criterion**.
+* Used **PCA** for dimensionality reduction and feature selection.
+* Converted signals to the frequency domain via **Fourier Transform**.
 
 ### 3. Feature Engineering
 
-* Created multiple feature sets:
+* Built progressive feature sets:
 
-  * Basic: raw accelerometer and gyroscope data
-  * Squared, PCA, Frequency, and Temporal features
-  * Cluster-based features (K-Means with k=5)
+  * Raw accelerometer and gyroscope data
+  * Squared, PCA-based, and frequency features
+  * Cluster-derived features using **K-Means (k=5)**
 
 ### 4. Predictive Modeling
 
-* Evaluated multiple supervised learning algorithms.
-* Best-performing models achieved **>99% classification accuracy** for exercise recognition.
+* Compared multiple supervised algorithms.
+* Best models (Neural Network and Random Forest) achieved **>99% classification accuracy** for exercise recognition.
 
 ### 5. Evaluation
 
-* Built **confusion matrix heatmaps** to interpret model predictions visually.
-* Verified model consistency across participants (A–E).
+* Generated **confusion matrices** and **accuracy comparisons** to visualize results.
+* Validated model generalization across all participants (A–E).
 
 ---
 
 ## Key Results
 
-* **Accuracy:** 99.14% (best neural network configuration)
+* **Accuracy:** 99.14% (Neural Network)
 * **Dataset Size:** ~70,000 samples, 5 participants
-* **Feature Sets:** 6 progressively richer feature configurations
+* **Features Tested:** 6 distinct engineered sets
 * **Sensor Input:** 6-axis (3 accelerometer + 3 gyroscope)
-* **Outcome:** Automated recognition of strength exercises with near-perfect precision
+* **Outcome:** Highly reliable model for exercise recognition and rep tracking
 
 ---
 
 ## Lessons Learned
 
-* Real-world sensor data requires **extensive preprocessing** to be model-ready.
-* Combining **frequency and time-domain features** significantly improves classifier accuracy.
-* Team coordination and iterative experimentation were crucial for convergence and optimization.
-* Model generalization can vary across participants, making participant-based testing essential.
+* Real sensor data requires **extensive preprocessing** before modeling.
+* Blending **frequency-domain and time-domain features** significantly boosts accuracy.
+* Team iteration and experimental validation are key to optimizing results.
+* Generalization varies by subject, reinforcing the value of participant-based validation.
 
 ---
 
 ## Future Improvements
 
-* Integrate **real-time feedback** into a mobile app.
-* Add **repetition counting** and **form correction** logic using time-series modeling.
-* Expand dataset diversity to include different body positions and exercises.
-* Deploy trained models into **wearable devices** for continuous fitness tracking.
+* Integrate **real-time classification** into a mobile application.
+* Add **automatic rep counting** and **form correction** via time-series modeling.
+* Expand dataset diversity with additional exercises and participants.
+* Deploy trained models on **wearable devices** for live feedback.
 
 ---
 
@@ -114,10 +112,10 @@ My main objective was to enhance the **data reliability** and **model accuracy**
 ```
 Exercise-Tracker/
 │
-├── Tracking-Project.ipynb         # Core machine learning and preprocessing notebook
-├── Exercise Tracking.pdf          # Full project report (academic submission)
-├── README.md                      # Project overview and Mohamad’s documentation
-└── data/                          # (Optional) Dataset folder (if shared)
+├── Tracking-Project.ipynb      # Main ML and preprocessing notebook
+├── Exercise Tracking.pdf       # Full academic report
+├── README.md                   # Project overview and documentation
+└── data/                       # (Optional) Dataset folder
 ```
 
 ---
@@ -126,10 +124,10 @@ Exercise-Tracker/
 
 Special thanks to:
 
-* **Dr. Tim Lin** for academic supervision and technical guidance.
-* **Matin Rahmani Neishabour** for leading model training and clustering analysis.
-* **Mostafa Aboutaam** for experiment setup and synchronization logic.
-* **Arturo Rebolledo** for participant coordination and data collection support.
+* **Dr. Tim H. Lin** – Faculty advisor and project mentor
+* **Matin Rahmani Neishabour** – Lead model training and clustering analysis
+* **Mostafa Aboutaam** – Experiment setup and data synchronization
+* **Arturo Rebolledo** – Participant coordination and data collection
 
 ---
 
@@ -138,8 +136,4 @@ Special thanks to:
 **Mohamad Lebdeh**
 B.S. Computer Engineering, Cal Poly Pomona (2023)
 Machine Learning & Software Engineering Enthusiast
-Email: MohamadLebdeh7@gmail.com
-
----
-
-Would you like me to make this version formatted specifically for GitHub’s display (with proper markdown headings, tables, and bold text preserved)? It’ll render cleaner with readable section spacing.
+Email: [MohamadLebdeh7@gmail.com](mailto:MohamadLebdeh7@gmail.com)
